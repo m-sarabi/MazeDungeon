@@ -58,7 +58,7 @@ maze[pos[0]] = maze[pos[0]][:pos[1]] + "@@" + maze[pos[0]][pos[1] + 2:]
 print("You are trapped in a maze.",
       "Be aware of the dangers!",
       "Try to escape from this maze!",
-      "You can find treasures and defeat monsters to get some loot!"
+      "You can find treasures and defeat monsters to get some loot!",
       "You have a limited time!", sep="\n")
 print()
 
@@ -66,6 +66,7 @@ print()
 print("Map markers info:")
 for i in legend:
     print(i)
+print()
 
 # printing the maze:
 for i in maze:
