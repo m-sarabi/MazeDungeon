@@ -1,5 +1,5 @@
 # MazeDungeon
-A simple text-based dungeon that I made for the python course I'm attending
+A simple text-based dungeon that I made for the Python course I'm attending
 
 ## How to play
 - move by typing the direction you want to go to
@@ -9,3 +9,6 @@ A simple text-based dungeon that I made for the python course I'm attending
 
 So use a good strategy and get the highest score possible!
 
+## Planned Features
+- Generating a new maze for a fresh experience each time
+- Multiple levels with increasing difficulty
