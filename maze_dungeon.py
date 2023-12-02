@@ -17,10 +17,6 @@ maze: list[str] = [
 ]
 legend = ["player: @@", "loot: ##", "danger: !!"]
 
-# for i in maze:
-#     print(i)
-# print()
-
 # generating loot an enemies in the corners
 loot_pos = []
 for row in range(1, len(maze) - 1):
@@ -75,7 +71,7 @@ for i in maze:
 # player should reach exit the maze before 40 tries:
 for step in range(45):
     # showing the player stats:
-    print("Health: {}, Time: {}".format(health, 35 - step))
+    print("Health: {}, Time: {}".format(health, 45 - step))
 
     direction = ""
     directions = ["up", "down", "left", "right"]
@@ -87,42 +83,39 @@ for step in range(45):
                 if maze[pos[0] - 1][pos[1]] != "-":
                     print("going up")
                     new_pos = [pos[0] - 1, pos[1]]
+                    break
                 else:
                     print("that way is blocked")
-                    bad_input = True
             case "down":
                 if maze[pos[0] + 1][pos[1]] != "-":
                     print("going down")
                     new_pos = [pos[0] + 1, pos[1]]
+                    break
                 else:
                     print("that way is blocked")
-                    bad_input = True
             case "right":
                 if maze[pos[0]][pos[1] + 2] != "|":
                     print("going right")
                     new_pos = [pos[0], pos[1] + 3]
+                    break
                 else:
                     print("that way is blocked")
-                    bad_input = True
             case "left":
                 if maze[pos[0]][pos[1] - 1] != "|":
                     print("going left")
                     new_pos = [pos[0], pos[1] - 3]
+                    break
                 else:
                     print("that way is blocked")
-                    bad_input = True
             case _:
                 print("Enter a correct direction!")
-                bad_input = True
-        if not bad_input:
-            break
 
     # each step player will lose one point
     score -= 1
     health = min(health + 4, 100)
 
     # checking for events:
-    match maze[pos[0]][pos[1]]:
+    match maze[new_pos[0]][new_pos[1]]:
         case "#":
             print("You found treasure and healed!")
             health = min(health + 20, 100)
